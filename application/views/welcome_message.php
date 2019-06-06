@@ -64,30 +64,25 @@
 					</table>
 				  </div>
 			</div>		
-			<div class="row mt-4 ml-2" style="border:1px solid yellow">
-					<div class="mt-4 md-4 ">
-						<button> Añadir a Carrito</button>
+			<div class="row mt-4 ml-2 col-2" style="border:1px solid yellow">
+					<div class="mt-5 mb-5">
+						<button  id="boton" class="mt-5"> Añadir a Carrito</button>
+						<input id="cantidad" class="col-12 mt-1" type="text" name="Cantidad" placeholder="Cantidad">
 					</div>	
 			</div>
-			<div class="row mt-4 ml-4" style="border: 1px solid green">
+			<div class="row mt-4 ml-4 col-4" style="border: 1px solid green">
 				<div class="mt-1">
 					<div style="overflow: scroll;height: 400px;"> 
-						<table class="table table-sm table-bordered table-striped mb-0">
+						<table id="tabla" class="table table-sm table-bordered table-striped mb-0">
 							<thead>
 								<tr>
 									<td> Id_producto </td>
 									<td> Nombre </td>
 									<td> Precio Unitario </td>
-									<td> Stock  </td>
+									<td> Cantidad  </td>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td> 1 </td>
-									<td> xd</td>
-									<td> Precio Unitario</td>
-									<td> 20</td>
-								</tr>
 
 							</tbody>
 						</table>
