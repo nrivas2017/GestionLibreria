@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 06-06-2019 a las 16:06:43
+-- Tiempo de generación: 06-06-2019 a las 16:20:58
 -- Versión del servidor: 5.7.25-0ubuntu0.16.04.2
 -- Versión de PHP: 7.0.33-0ubuntu0.16.04.3
 
@@ -49,6 +49,27 @@ CREATE TABLE `detalle` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `detalle_proveedor`
+--
+
+CREATE TABLE `detalle_proveedor` (
+  `id_proveedor` int(11) NOT NULL,
+  `nombre` varchar(30) DEFAULT NULL,
+  `telefono` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `detalle_proveedor`
+--
+
+INSERT INTO `detalle_proveedor` (`id_proveedor`, `nombre`, `telefono`) VALUES
+(2, 'artel', '56223901500'),
+(3, 'Jamila', '56975908794'),
+(4, 'Comercial RedOffice', '452910300');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `factura`
 --
 
@@ -90,6 +111,18 @@ INSERT INTO `productos` (`id_producto`, `nombre`, `precio_unitario`, `stock`) VA
 (12, 'Silicona Liquida', 680, 27),
 (13, 'Pegamento Barra', 637, 70);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedor`
+--
+
+CREATE TABLE `proveedor` (
+  `id_proveedor` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `cantidad` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Índices para tablas volcadas
 --
@@ -108,6 +141,12 @@ ALTER TABLE `detalle`
   ADD KEY `id_factura` (`id_factura`);
 
 --
+-- Indices de la tabla `detalle_proveedor`
+--
+ALTER TABLE `detalle_proveedor`
+  ADD PRIMARY KEY (`id_proveedor`);
+
+--
 -- Indices de la tabla `factura`
 --
 ALTER TABLE `factura`
@@ -121,6 +160,13 @@ ALTER TABLE `productos`
   ADD PRIMARY KEY (`id_producto`);
 
 --
+-- Indices de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD KEY `id_proveedor` (`id_proveedor`),
+  ADD KEY `id_producto` (`id_producto`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -129,6 +175,11 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `cliente`
   MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `detalle_proveedor`
+--
+ALTER TABLE `detalle_proveedor`
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `factura`
 --
@@ -155,6 +206,13 @@ ALTER TABLE `detalle`
 --
 ALTER TABLE `factura`
   ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`);
+
+--
+-- Filtros para la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`id_proveedor`) REFERENCES `detalle_proveedor` (`id_proveedor`),
+  ADD CONSTRAINT `proveedor_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
