@@ -18,7 +18,8 @@
 		}
 		body {
   			margin: 0;
-  			margin-bottom: 0px;
+			  margin-bottom: 0px;
+			  background-color:#b9fff8;
 		}
 		footer {
   			background-color: black;
