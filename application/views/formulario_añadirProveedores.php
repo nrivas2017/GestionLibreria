@@ -18,5 +18,4 @@
 <?= form_submit('','Guardar') ?>
 <?= form_close() ?>
 
-</body>
-</html>
+

@@ -1,8 +1,7 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
-<body>
+
 	<!--- Barra de Navegacion -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Gestion Libreria</a>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href=<?= base_url()?>>Gestion Libreria</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" 
           data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
           aria-expanded="false" aria-label="Toggle navigation">
@@ -11,7 +10,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href=<?= base_url()?>>Inicio <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href=<?= base_url()?>>Productos <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href=<?= base_url().'proveedores'?> >Detalle</a>
@@ -27,7 +26,10 @@
   </div>
 </nav>
  	<!--- Fin Barra de navegacion -->
-<section>
+
+
+
+	 <section>
 	<div class="container"> 
 		<div class="row">
 			<div class="mt-4 md-4 col-12" >
@@ -69,9 +71,9 @@
 
 </section>
 
+<footer>Footer</footer>
 </body>
-
-
+</html>
 
 <!-- Section antigua 
 		<section>
@@ -101,7 +103,6 @@
 					
 				?>	
 			</table>
-			<h1>jasdfjlsadg</h1>
 			<?php
 			echo '<a href="'.base_url().'index.php/welcome/nuevo"><input type="button" value="Nuevo"></a>';
 			?>

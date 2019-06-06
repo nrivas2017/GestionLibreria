@@ -12,18 +12,24 @@ class Proveedores extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('headers');
+		$this->load->view('barra_nav');
 		//$data= $this->Datos_model->mostrarDatos();
 		$this->load->view('proveedor');
+		$this->load->view('footer');
 	}
 	public function addProveedor(){
 		$this->load->view('headers');
+		$this->load->view('barra_nav');
 		$this->load->view('formulario_añadirProveedores');
+		$this->load->view('footer');
 	}
 
 	public function addProducto(){
 		$this->load->view('headers');
+		$this->load->view('barra_nav');
 		$data=$this->Datos_model->mostrarDatos('detalle_proveedor');
 		$this->load->view('formulario_añadirProductos',$data);
+		$this->load->view('footer');
 	}
 	// Interactua con DB
 	public function recibirdatos(){
