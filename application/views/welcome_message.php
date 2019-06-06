@@ -101,6 +101,7 @@
 					
 				?>	
 			</table>
+			<h1>jasdfjlsadg</h1>
 			<?php
 			echo '<a href="'.base_url().'index.php/welcome/nuevo"><input type="button" value="Nuevo"></a>';
 			?>
