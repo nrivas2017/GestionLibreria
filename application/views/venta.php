@@ -16,16 +16,14 @@
 					);
 					foreach ($consulta->result() as $fila) {
 							 $datos["id"][]=$fila->id_producto;
-							 $datos["nombre"][]=$fila->nombre;
+							 $datos["nombre"][$fila->nombre]=$fila->nombre;
 							 $datos["precio"][]=$fila->precio_unitario;
 							 $datos["stock"][]=$fila->stock;
 					}
 
 					$options = $datos['nombre']; //Todos los nombres de Productos
 					$precio = array(
-						'type' =>'number',
 						'name'=> 'precio',
-						'disabled'=>'disabled',
 						'value'=>$datos['precio'][0]
 					);
 					$cantidad = array(
@@ -39,6 +37,11 @@
 						'name'=> 'id',
 						'value'=>$datos['id'][0]
 					);
+					$stock = array(
+						'type' =>'hidden',
+						'name'=> 'stock',
+						'value'=>$datos['stock'][0]
+					);
 				?>
 				<?= form_label('Nombre: ','nombre') ?>
 				<?=form_dropdown('nombre',$options,set_value('nombre')) ?>		 
@@ -46,6 +49,9 @@
 				
 				<?= form_label('','id') ?> 
 				<?= form_input($id)?>
+
+				<?= form_label('','stock') ?> 
+				<?= form_input($stock)?>
 
 				<?= form_label('Precio: ','precio') ?> 
 				<?= form_input($precio)?>

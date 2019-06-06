@@ -26,9 +26,9 @@ class Datos_Model extends CI_Model {
 
 	}
 	//----------------NUEVA VENTA---------------
-	function actualizarProducto($data,$id){
-		$this->db->where('id',$id);
-		$this->db->update('productos',array('nombre'=>$data['nombre'],'precio_unitario'=>$data['precio'],'stock'=>$data['cantidad']));
+	function actualizarProducto($data){
+		$this->db->where('id_producto',$data['id']);
+		$this->db->update('productos',array('stock'=>$data['cantidad']));
 
 	}
 }
