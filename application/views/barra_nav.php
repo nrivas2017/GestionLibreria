@@ -18,9 +18,21 @@
         <a class="nav-link" href=<?= base_url().'proveedores/showVenta'?> >Venta</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <?= form_open(base_url().'proveedores/searchProducto',array('class' => 'form-inline my-2 my-lg-0')) ?>
+    <?php 
+      $prod = array(
+        'name' => 'nombre',
+        'placeholder'=>'Busqueda',
+        'class'=>'form-control mr-sm-2'
+      );
+      $submit = array(
+        'placeholder'=>'Busqueda',
+        'value'=>'Buscar',
+        'class'=>'btn btn-outline-success my-2 my-sm-0'
+      );
+    ?>
+    <?= form_input($prod)?>
+    <?= form_submit($submit) ?>
+    <?= form_close() ?>
   </div>
 </nav>

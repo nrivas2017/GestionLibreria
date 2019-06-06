@@ -51,6 +51,16 @@ class Proveedores extends CI_Controller {
 		$this->load->view('formulario_añadirProductos',$data);
 		$this->load->view('footer');
 	}
+	public function searchProducto(){
+		$this->load->view('headers');
+		$this->load->view('barra_nav');
+		$prod = array(
+			'prod'=> $this->input->post('nombre')
+		);
+		$data= $this->Datos_model->buscaYmuestraDato($prod);
+		$this->load->view('productos',$data);
+		$this->load->view('footer');
+	}
 	// Interactua con DB
 	public function recibirdatos(){
 		$data = array(

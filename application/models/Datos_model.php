@@ -31,5 +31,11 @@ class Datos_Model extends CI_Model {
 		$this->db->update('productos',array('stock'=>$data['cantidad']));
 
 	}
+	//Busca un producto y muestra
+	function buscaYmuestraDato($prod){
+		$this->db->like('nombre',$prod['prod']);
+		$result = $this->db->get('productos');
+		return array('consulta'=> $result);
+	}
 }
 ?>
