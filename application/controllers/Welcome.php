@@ -13,11 +13,11 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('headers');
-		$this->load->view('barra_nav');
-		$this->load->view('inicio');
-		$this->load->view('footer');
+		$data= $this->Datos_model->mostrarDatos("productos");
+		$this->load->view('welcome_message',$data);
 		
-	}/*
+		
+	}
 	public function nuevo(){
 		$this->load->view('headers');
 		$this->load->view('formulario');
@@ -34,6 +34,6 @@ class Welcome extends CI_Controller {
 		$data= $this->Datos_model->obtenerAlumno($id);
 		$this->load->view('headers');
 		$this->load->view('formularioEditar',$data);
-	}*/
+	}
 	
 }
