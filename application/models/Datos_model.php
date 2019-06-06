@@ -25,5 +25,11 @@ class Datos_Model extends CI_Model {
 		$this->db->update('alumnos',array('nombre'=>$data['nombre'],'ciudad'=>$data['ciudad'],'edad'=>$data['edad']));
 
 	}
+	//----------------NUEVA VENTA---------------
+	function actualizarProducto($data,$id){
+		$this->db->where('id',$id);
+		$this->db->update('productos',array('nombre'=>$data['nombre'],'precio_unitario'=>$data['precio'],'stock'=>$data['cantidad']));
+
+	}
 }
 ?>
