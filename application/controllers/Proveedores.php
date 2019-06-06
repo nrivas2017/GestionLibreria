@@ -68,11 +68,11 @@ class Proveedores extends CI_Controller {
 			'nombre'=> $this->input->post('nombre'),
 			'precio'=> $this->input->post('precio'),
 			'cantidad'=> $this->input->post('stock')-$this->input->post('cantidad')
-			//Stock en BD - Cantidad seleccionada
+		);//Stock en BD - Cantidad seleccionada
 		//echo "<script> alert('ID =".$data['id']."      NOMBRE =".$data['nombre']."       PRECIO =".$data['precio']."     CANTIDAD =".$data['cantidad']."'); </script>";
 		$this->Datos_model->actualizarProducto($data);
 		//echo '<script> alert("Datos Ingresados Correctamente "); </script>';
-		//redirect(base_url().'proveedores','refresh');
+		redirect(base_url().'proveedores','refresh');
 
 	}
 }

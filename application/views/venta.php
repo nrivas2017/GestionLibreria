@@ -24,6 +24,7 @@
 					$options = $datos['nombre']; //Todos los nombres de Productos
 					$precio = array(
 						'name'=> 'precio',
+						'readonly'=>'true',
 						'value'=>$datos['precio'][0]
 					);
 					$cantidad = array(
