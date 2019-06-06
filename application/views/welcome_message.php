@@ -1,8 +1,4 @@
 
-<h1>GESTION DE LIBRERIA</h1>
-
-
-
 <!-- Section antigua 
 		<section>
 

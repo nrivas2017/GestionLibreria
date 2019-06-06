@@ -11,6 +11,24 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<!--.....................-->
+	<style>
+		html {
+  			min-height: 100%;
+  			position: relative;
+		}
+		body {
+  			margin: 0;
+  			margin-bottom: 0px;
+		}
+		footer {
+  			background-color: black;
+  			position: absolute;
+  			bottom: 0;
+  			width: 100%;
+  			height: 60px;
+  			color: white;
+		}
+	</style>
 </head>
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <body>

@@ -30,6 +30,13 @@ class Proveedores extends CI_Controller {
 		$this->load->view('proveedor');
 		$this->load->view('footer');
 	}
+	public function showVenta(){
+		$this->load->view('headers');
+		$this->load->view('barra_nav');
+		$data= $this->Datos_model->mostrarDatos("productos");
+		$this->load->view('venta',$data);
+		$this->load->view('footer');
+	}
 	public function addProveedor(){
 		$this->load->view('headers');
 		$this->load->view('barra_nav');

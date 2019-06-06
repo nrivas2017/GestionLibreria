@@ -7,14 +7,15 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+
+      <li class="nav-item">
         <a class="nav-link" href=<?= base_url().'proveedores/showProductos'?>>Productos <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href=<?= base_url().'proveedores/showDetalle'?> >Detalle</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link" href=<?= base_url().'proveedores/showVenta'?> >Venta</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
