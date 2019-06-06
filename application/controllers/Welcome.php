@@ -14,7 +14,7 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('headers');
 		$this->load->view('barra_nav');
-		$this->load->view('welcome_message');
+		$this->load->view('inicio');
 		$this->load->view('footer');
 		
 	}/*
