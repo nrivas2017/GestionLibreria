@@ -10,10 +10,23 @@ class Proveedores extends CI_Controller {
 		$this->load->helper('url');
 	}
 	public function index()
-	{
+	{	
+		redirect(base_url(),'refresh');
+		//$this->load->view('headers');
+		//$this->load->view('barra_nav');
+		////$data= $this->Datos_model->mostrarDatos();
+		//$this->load->view('footer');
+	}
+	public function showProductos(){
 		$this->load->view('headers');
 		$this->load->view('barra_nav');
-		//$data= $this->Datos_model->mostrarDatos();
+		$data= $this->Datos_model->mostrarDatos("productos");
+		$this->load->view('productos',$data);
+		$this->load->view('footer');
+	}
+	public function showDetalle(){
+		$this->load->view('headers');
+		$this->load->view('barra_nav');
 		$this->load->view('proveedor');
 		$this->load->view('footer');
 	}
