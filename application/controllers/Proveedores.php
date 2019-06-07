@@ -22,7 +22,8 @@ class Proveedores extends CI_Controller {
 
 	public function addProducto(){
 		$this->load->view('headers');
-		$data=$this->Datos_model->mostrarDatos('detalle_proveedor');
+		$data['proveedor']=$this->Datos_model->mostrarDatos('detalle_proveedor');
+		$data['productos']=$this->Datos_model->mostrarDatos('productos');
 		$this->load->view('formulario_añadirProductos',$data);
 	}
 	// Interactua con DB

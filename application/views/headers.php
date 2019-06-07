@@ -2,7 +2,7 @@
 <html lang="es">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-885">
 <head>
-	<link rel="shortcut icon" href="img/icono.ico"/>
+	<link rel="shortcut icon" href="<?= base_url().'img/icono.ico'?>"/>
 	<title>Inicio</title>
 	<meta charset="utf-8">
 	<!-- Librerias a utlizar -->

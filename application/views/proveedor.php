@@ -11,10 +11,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href=<?= base_url()?>>Inicio </a>
+        <a class="nav-link" href=<?= base_url().'index.php'?>>Inicio </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href=<?= base_url().'proveedores'?>>Detalle<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href=<?= base_url().'index.php/proveedores'?>>Detalle<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
@@ -32,8 +32,8 @@
     <div class="row">
         <div class="md-4 col-12" style="border: 1px solid black">
             <h5> Ingresar productos </h5>
-            <a href=<?= base_url().'proveedores/addProveedor' ?> class="btn btn-primary"> Añadir Proveedor</a>
-            <a href=<?= base_url().'proveedores/addProducto'?> class="btn btn-primary"> Añadir Productos </a>
+            <a href=<?= base_url().'index.php/proveedores/addProveedor' ?> class="btn btn-primary"> Añadir Proveedor</a>
+            <a href=<?= base_url().'index.php/proveedores/addProducto'?> class="btn btn-primary"> Añadir Productos </a>
         </div>
     </div>
 

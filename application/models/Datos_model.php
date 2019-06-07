@@ -10,17 +10,17 @@ class Datos_Model extends CI_Model {
 	}
 	function mostrarDatos($db){
 		$result = $this->db->get($db);
-		return array('consulta'=> $result);
+		return $result;
 	}
-	function eliminarAlumno($id){
+	function eliminar($id){
 		$this->db->delete('alumnos',array('id'=>$id));
 	}
-	function obtenerAlumno($id){
+	function obtener($id){
 		$this -> db->where('id',$id);
-		$query = $this->db->get("alumnos");
-		return array('consulta'=> $query);
+		$result = $this->db->get("alumnos");
+		return $result;
 	}
-	function actualizarAlumno($data,$id){
+	function actualizar($data,$id){
 		$this->db->where('id',$id);
 		$this->db->update('alumnos',array('nombre'=>$data['nombre'],'ciudad'=>$data['ciudad'],'edad'=>$data['edad']));
 
