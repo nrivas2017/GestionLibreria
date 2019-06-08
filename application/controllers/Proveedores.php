@@ -22,7 +22,7 @@ class Proveedores extends CI_Controller {
 
 	public function addProducto(){
 		$this->load->view('headers');
-		$data['proveedor']=$this->Datos_model->mostrarDatos('detalle_proveedor');
+		$data['proveedor']=$this->Datos_model->mostrarDatos('proveedor');
 		$data['productos']=$this->Datos_model->mostrarDatos('productos');
 		$this->load->view('formulario_añadirProductos',$data);
 	}
@@ -36,5 +36,13 @@ class Proveedores extends CI_Controller {
 		echo '<script> alert("Datos Ingresados Correctamente "); </script>';
 		redirect(base_url().'proveedores','refresh');
 
+	}
+	public function recibirProducto(){
+		$data = array(
+			'id_proveedor' => $this->input->post('id_proveedor'), 
+			'id_producto'  => $this->input->post('id_producto'),
+			'cantidad'  => $this->input->post('cantidad')
+		);
+		$this->Datos_model->crearProducto($data);
 	}
 }

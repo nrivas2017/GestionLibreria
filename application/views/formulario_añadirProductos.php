@@ -1,32 +1,19 @@
-<?php 
-	$nombre = array(
-		'name' => 'nombre',
-		'placeholder'=>'escribe tu nombre'
-	);
-	$telefono = array(
-		'name'=> 'telefono',
-		'placeholder'=>'Ingresa Numero'
-	);
-?>
-
+<script type="text/javascript" src="<?= base_url().'js/añadirProductos.js' ?>"></script>
 <div class="container">
 	<div class="row">
 		<div class="col-12">
-				<form role="form" >
 				  <div class="form-group col-12">
 				  	<div class="row col-5" s>
 				  		<div class="mt-4 md-4 ml-5 mr-5 col-12">
 				  			<h3>Añadir Productos </h3>
 				  			<br>
 				  		</div>
-				  		
 				  		<div class="col-3" >
 				  			Seleccionar Proveedor:
-
 				  		</div>
 
 				  		<div class="col-5">
-					  		<select class='form-control' name='proveedores'>
+					  		<select class='form-control' id='id_proveedor'>
 					  		<?php
 					  			$html = '';
 					  			foreach ($proveedor->result() as $f) {
@@ -44,7 +31,7 @@
 				  			
 				  		</div>
 				  		<div class="col-5">
-					  		<select class='form-control' name='proveedores'>
+					  		<select class='form-control' id='id_producto'>
 					  		<?php
 					  			$html = '';
 					  			foreach ($productos->result() as $f) {
@@ -61,17 +48,14 @@
 				  			Cantidad:
 				  		</div>
 				  		<div class="col-5">
-				  			<input type="text" name="cantidad" placeholder="Cantidad">
+				  			<input  type="text" id="cantidad" placeholder="Cantidad">
+				  		</div>
+				  	</div>
+				  		<div class="col-1 mt-4">
+				  			<button id='enviar' class='btn btn-primary'>Enviar</button>
 				  		</div>
 				  		
-				  	</div>
-				  	<div class="col-1 mt-4">
-				  		<input class='btn btn-primary'type="submit" name="enviar">
-				  	</div>
-				  	
 				  </div>
-				  
-				</form>
 		</div>
 	</div>
 </div>

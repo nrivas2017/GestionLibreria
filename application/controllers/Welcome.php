@@ -16,7 +16,7 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('headers');
-		$data= $this->Datos_model->mostrarDatos("productos");
+		$data['consulta']= $this->Datos_model->mostrarDatos("productos");
 		$this->load->view('welcome_message',$data);
 	}
 	public function nuevo(){
