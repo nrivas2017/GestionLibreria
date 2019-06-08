@@ -33,8 +33,9 @@
 		.container{
 			height: 500px;
 			width: 700px;
-			background-color: rgba(1,1,1,0.5);
+			background-color: rgba(1,1,1,0.2);
 			margin-top:17px;
+			border-radius: 10px;
 		}
 	</style>
 </head>
