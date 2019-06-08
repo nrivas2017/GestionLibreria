@@ -1,14 +1,3 @@
-<?php 
-	$nombre = array(
-		'name' => 'nombre',
-		'placeholder'=>'escribe tu nombre'
-	);
-	$telefono = array(
-		'name'=> 'telefono',
-		'placeholder'=>'Ingresa Numero'
-	);
-?>
-
 <div class="container">
 	<div class="row">
 		<div class="col-12">

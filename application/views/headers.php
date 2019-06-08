@@ -18,8 +18,9 @@
 		}
 		body {
   			margin: 0;
-			  margin-bottom: 0px;
-			  background-color:#b9fff8;
+			margin-bottom: 0px;
+			background-image:url("http://pillan.inf.uct.cl/~nrivas/fondo.jpg");
+			background-
 		}
 		footer {
   			background-color: black;
@@ -28,6 +29,12 @@
   			width: 100%;
   			height: 60px;
   			color: white;
+		}
+		.container{
+			height: 500px;
+			width: 700px;
+			background-color: rgba(1,1,1,0.5);
+			margin-top:17px;
 		}
 	</style>
 </head>

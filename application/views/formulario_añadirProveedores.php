@@ -1,3 +1,6 @@
+<div class="container">
+	<div class="row">
+		<div class="col-12">
 <h3>Ingresar Datos </h3><br>
 
 <?= form_open(base_url().'proveedores/recibirdatos') ?>
@@ -17,5 +20,8 @@
 	<?= form_input($telefono)?>
 <?= form_submit('','Guardar') ?>
 <?= form_close() ?>
+		</div>
+	</div>
+</div>
 
 
