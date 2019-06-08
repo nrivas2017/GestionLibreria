@@ -6,7 +6,7 @@ class Datos_Model extends CI_Model {
 		$this->load->database();
 	}
 	function crearDato($data){
-		$this->db->insert('detalle_proveedor',array('nombre'=>$data['nombre'],'telefono'=>$data['telefono']));
+		$this->db->insert('proveedor',array('nombre'=>$data['nombre'],'telefono'=>$data['telefono']));
 	}
 	function mostrarDatos($db){
 		$result = $this->db->get($db);

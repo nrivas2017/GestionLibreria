@@ -47,7 +47,7 @@ class Proveedores extends CI_Controller {
 	public function addProducto(){
 		$this->load->view('headers');
 		$this->load->view('barra_nav');
-		$data=$this->Datos_model->mostrarDatos('detalle_proveedor');
+		$data=$this->Datos_model->mostrarDatos('proveedor');
 		$this->load->view('formulario_añadirProductos',$data);
 		$this->load->view('footer');
 	}
@@ -72,6 +72,13 @@ class Proveedores extends CI_Controller {
 		redirect(base_url().'proveedores','refresh');
 
 	}
+	public function recibirdatosProducto(){
+		//Por ahora devuelve la misma pag no mas
+		redirect(base_url().'proveedores/addProducto','refresh');
+	}
+
+
+	//ESTO ESTA MALO
 	public function recibirdatosventa(){
 		$data = array(
 			'id'=> $this->input->post('id'),

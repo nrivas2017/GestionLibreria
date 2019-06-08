@@ -45,8 +45,7 @@
 					);
 				?>
 				<?= form_label('Nombre: ','nombre') ?>
-				<?=form_dropdown('nombre',$options,set_value('nombre')) ?>		 
-				<!--<?= form_input($nombre)?>-->
+				<?=form_dropdown('nombre',$options,set_value('nombre')) ?>	
 				
 				<?= form_label('','id') ?> 
 				<?= form_input($id)?>
