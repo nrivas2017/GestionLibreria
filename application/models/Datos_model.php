@@ -37,5 +37,16 @@ class Datos_Model extends CI_Model {
 		$this->db->where('id',$id);
 		$this->db->update('alumnos',array('nombre'=>$data['nombre'],'ciudad'=>$data['ciudad'],'edad'=>$data['edad']));
 	}
+	function fetch_data($query){
+	 	$this->db->select("*");
+	 	$this->db->from("cliente");
+	 	if($query != ''){
+	 		$this->db->like("id_cliente",$query);
+	 		$this->db->or_like("rut",$query);
+	 		$this->db->or_like("nombre",$query);
+	 	}
+	 	$this->db->order_by('id_cliente','DESC');
+	 	return $this->db->get();
+	 }
 }
 ?>

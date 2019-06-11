@@ -16,11 +16,7 @@ $(document).ready(function(){
 			},
 			success:function(data){
 				alert("Datos Enviados Correctamente");
-			},
-			error:function(data){
-				alert("Error al enviar datos");
 			}
-
 		});	
 	});
 });

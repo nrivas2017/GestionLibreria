@@ -10,8 +10,9 @@ class Welcome extends CI_Controller {
 		$this->load->helper('url');
 	}
 	public function crearBoleta(){
+		$data = $this->input->post('id_producto');
 		$this->load->view('headers');
-		$this->load->view('boletas');
+		$this->load->view('boletas',$data);
 	}
 	public function index()
 	{
@@ -23,17 +24,38 @@ class Welcome extends CI_Controller {
 		$this->load->view('headers');
 		$this->load->view('formulario');
 	}
+	public function fetch(){
+		$output =array();
+		$query = '';
+		$this->load->model('Datos_model');
+		if($this->input->post('query'))
+		{
+			$query = $this->input->post('query');
+		}
+		$data = $this->Datos_model->fetch_data($query);
 
-	public function eliminar(){
-		$id = $this->uri->segment(3);
-		$this->Datos_model->eliminarAlumno($id);
-		redirect(base_url().'index.php/welcome','refresh');
+		foreach ($data->result() as $row) {
+			$output .= '<option>'.$row->nombre.'<option>';
+		}
+		echo $output;
 	}
-	public function editar(){
-		$id = $this->uri->segment(3);
-		$data= $this->Datos_model->obtenerAlumno($id);
-		$this->load->view('headers');
-		$this->load->view('formularioEditar',$data);
+	public function fetch2(){
+		$output =array();
+		$query = '';
+		$this->load->model('Datos_model');
+		if($this->input->post('query2'))
+		{
+			$query = $this->input->post('query2');
+		}
+		$data = $this->Datos_model->fetch_data($query);
+		foreach ($data->result() as $row) {
+			$output= '<p>Rut: '.$row->rut.'<p>';
+		}
+		if($output != ''){
+			echo $output;
+		}else{
+			echo "<p> Rut : No encontrado </p>";
+		}
+		
 	}
-	
 }

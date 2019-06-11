@@ -71,9 +71,9 @@
 					<div class="mt-5 mb-5">
 						<button  id="boton" class="mt-5"> Añadir a Carrito</button>
 						<input id="cantidad" class="col-12 mt-1" type="text" name="Cantidad" placeholder="Cantidad">
-						<form id="formulario" role="form" action="<?php base_url().'welcome/crearBoleta' ?>">
-							<input type="submit" value="enviar">
-						</form>
+						<button id='enviar'>Crear boleta</button>
+						
+
 					</div>	
 			</div>
 			<div class="row mt-4 ml-4 col-4" style="border: 1px solid green">
@@ -98,6 +98,53 @@
 			</div>
 			<!--- Fin tabla -->
 		</div>
+		<div id='boleta' class="card col-5" style="position: absolute !important; left:25% !important;bottom:20% !important;" >
+			<div class="card-body ">
+				<div class="row">
+					<div class="col-3">
+						<p> Cliente:</p>
+						
+					</div>
+					<div class="col-1">
+						<input list='nombres' type="text" name="" id="nombre">
+						<datalist id="nombres"></datalist>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<p id='rut'> Rut:</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">			
+						<p> Fecha : <?= date(' j/m/Y ');?></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12"> 
+						<p> Productos </p>
+						<hr>	
+					</div>
+					<div class="col-12">
+						<table id="tabla2" class="table table-sm table-bordered table-striped mb-0">
+							<thead>
+								<tr>
+									<th> Producto</th>
+									<th> Cantidad</th>
+									<th> Precio </th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+					<div class="col-12">
+						<hr>
+						<button> Cancelar boleta</button>
+						<button> Guardar Boleta</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
