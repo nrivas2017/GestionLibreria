@@ -9,10 +9,16 @@ class Welcome extends CI_Controller {
 		$this->load->model('Datos_model');
 		$this->load->helper('url');
 	}
-	public function crearBoleta(){
-		$data = $this->input->post('id_producto');
-		$this->load->view('headers');
-		$this->load->view('boletas',$data);
+	public function guardarBoleta(){
+		$data = array(
+			'id_producto' => $this->input->post("id_producto"), 
+			'cantidad'   => $this->input->post("cantidad"),
+			'precio'     => $this->input->post("precio"),
+			'rut'        =>$this->input->post("rut_cliente"),
+			'hora'       =>$this->input->post("hora")
+		);
+		$datos = $this->Datos_model->crear_Boleta($data);
+		echo $datos;
 	}
 	public function index()
 	{
@@ -27,7 +33,6 @@ class Welcome extends CI_Controller {
 	public function fetch(){
 		$output =array();
 		$query = '';
-		$this->load->model('Datos_model');
 		if($this->input->post('query'))
 		{
 			$query = $this->input->post('query');
@@ -49,13 +54,10 @@ class Welcome extends CI_Controller {
 		}
 		$data = $this->Datos_model->fetch_data($query);
 		foreach ($data->result() as $row) {
-			$output= '<p>Rut: '.$row->rut.'<p>';
+			$output='<p>Rut:'.$row->rut.'</p>';
 		}
 		if($output != ''){
 			echo $output;
-		}else{
-			echo "<p> Rut : No encontrado </p>";
 		}
-		
 	}
 }

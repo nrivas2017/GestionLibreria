@@ -4,6 +4,7 @@ $(document).ready(function(){
 	var presionado=false;
 	var anterior ;
 	$("#boleta").hide();
+	$("#id_cliente").hide();
 	$(".columna").click(function(){
 		if(!presionado){
 			$(this).css("background-color","#baf7f7");
@@ -34,6 +35,18 @@ $(document).ready(function(){
 		}
 
 	})
+	// Boton de cancelar en menu de boletas 
+	$("#cancelar").click(function(){
+		$("#boleta").hide();
+	});
+	//Boton de guardar boleta en db 
+	$("#guardar").click(function(){
+
+		rut = $("#rut").html().split("<p>")[1].split("</p>")[0].split("Rut:")[1];
+		guardarData(rut);
+
+
+	});
 	$("#nombre").keypress(function(){
 		var search = $(this).val();
 		if(search != '')
@@ -86,7 +99,7 @@ function agregar_html(cadena){
 }
 	function load_data(query){
 		$.ajax({
-			url:"http://localhost/CodeIgniter-3.1.10/index.php/welcome/fetch",
+			url:"http://localhost/GestionLibreria/index.php/welcome/fetch",
 			method:"POST",
 			data:{query:query},
 			success:function(data){
@@ -97,12 +110,36 @@ function agregar_html(cadena){
 	}
 	function load_data2(query){
 		$.ajax({
-			url:"http://localhost/CodeIgniter-3.1.10/index.php/welcome/fetch2",
+			url:"http://localhost/GestionLibreria/index.php/welcome/fetch2",
 			method:"POST",
 			data:{query2:query},
 			success:function(data){
+				console.log(data);
 				$('#rut').html(data);
 			}
 		});
 	}
+	function guardarData(rut){
+		var f=new Date();
+		cad=f.getHours()+":"+f.getMinutes()+":"+f.getSeconds(); 
+		for (var x = 0 ;x < productos.length ; x++) {
+			alert(productos[x].nombre);
+		
+	 		$.ajax({
+				url:"http://localhost/GestionLibreria/index.php/welcome/guardarBoleta",
+				method:"POST",
+				data:{
+					rut_cliente:rut,
+					id_producto:productos[x].id_producto,
+					cantidad : productos[x].cantidad,
+					precio   : productos[x].total,
+					hora     : cad
 
+				},
+				success:function(data){
+					alert("Datos Guardados Correctamente");
+					console.log(data);
+				}
+			});
+		}
+	}

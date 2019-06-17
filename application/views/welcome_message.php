@@ -111,13 +111,13 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-12">
-						<p id='rut'> Rut:</p>
+					<div  class="col-12">
+						<p id="rut">Rut:</p> 
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-12">			
-						<p> Fecha : <?= date(' j/m/Y ');?></p>
+						<p> Fecha : <?= date(' j-m-Y ');?></p>
 					</div>
 				</div>
 				<div class="row">
@@ -140,8 +140,8 @@
 					</div>
 					<div class="col-12">
 						<hr>
-						<button> Cancelar boleta</button>
-						<button> Guardar Boleta</button>
+						<button id='cancelar'> Cancelar boleta</button>
+						<button id='guardar'> Guardar Boleta</button>
 					</div>
 				</div>
 			</div>

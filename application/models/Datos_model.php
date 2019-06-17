@@ -48,5 +48,19 @@ class Datos_Model extends CI_Model {
 	 	$this->db->order_by('id_cliente','DESC');
 	 	return $this->db->get();
 	 }
+	function crear_Boleta($data){
+		//busca id de cliente con rut
+		$query=$this->db->query("SELECT * from cliente WHERE rut='".$data['rut']."'");
+
+		foreach ($query->result() as $f) {
+			$id_cliente = $f->id_cliente;
+		}
+		$fecha = date(' Y-m-j ');
+		// crea factura o pregunta si existe 
+		$query=$this->db->query("Select * from factura where id_cliente=".$id_cliente."and fecha='".$fecha."' and hora='".$data['hora']."'");
+		$resultado =  $query->result();
+		
+
+	}
 }
 ?>
