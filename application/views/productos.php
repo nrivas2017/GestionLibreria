@@ -7,14 +7,14 @@
 			<!--- Tabla con productos actuales -->
 			<div class="mt-4 md-4 col-12">
 					<!-- Crea scroll -->
-					<div style="overflow: scroll;height: 380px"> 
-					<table class="table table-hover table-striped">
-						<thead class="thead-dark">
+					<div style="overflow: scroll;height: 400px"> 
+					<table class="table table-bordered table-striped mb-0">
+						<thead>
 							<tr>
-								<td><b> ID </b></td>
-								<td><b>NOMBRE</b></td>
-								<td><b>PRECIO UNITARIO</b></td>
-								<td><b>STOCK</b></td>
+								<td> Id_producto </td>
+								<td> Nombre </td>
+								<td> Precio Unitario </td>
+								<td> Stock  </td>
 							</tr>
 						</thead>
 						<tbody >
@@ -33,6 +33,27 @@
 						</tbody>
 					</table>
 				  </div>
+			</div>
+			<!--- Fin tabla -->
+			<div class="row mt-4 ml-4 col-4" style="border: 1px solid green">
+				<div class="mt-1">
+					<div style="overflow: scroll;height: 400px;"> 
+						<table id="tabla" class="table table-sm table-bordered table-striped mb-0">
+							<thead>
+								<tr>
+									<td> Id_producto </td>
+									<td> Nombre </td>
+									<td> Precio Unitario </td>
+									<td> Cantidad  </td>
+								</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+
 			</div>
 			<!--- Fin tabla -->
 		</div>
