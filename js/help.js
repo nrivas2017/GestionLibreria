@@ -58,6 +58,14 @@ $(document).ready(function(){
 			load_data();
 		}
 	});
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		
+		$("#wrapper").toggleClass("toggled");
+
+		$('#wrapper.toggled').find("#sidebar-wrapper").find(".collapse").collapse('hide');
+		
+	});
 });
 function agregar_html(cadena){
 	stock = cadena.split("<td>")[4].split("</td>")[0];
