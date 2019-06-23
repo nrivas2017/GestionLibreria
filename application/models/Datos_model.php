@@ -51,14 +51,38 @@ class Datos_Model extends CI_Model {
 	function crear_Boleta($data){
 		//busca id de cliente con rut
 		$query=$this->db->query("SELECT * from cliente WHERE rut='".$data['rut']."'");
-
 		foreach ($query->result() as $f) {
 			$id_cliente = $f->id_cliente;
 		}
-		$fecha = date(' Y-m-j ');
+		#----------------------------------------------------------------------------------
+
+		$date = date('Y-m-d');
 		// crea factura o pregunta si existe 
-		$query=$this->db->query("Select * from factura where id_cliente=".$id_cliente."and fecha='".$fecha."' and hora='".$data['hora']."'");
-		$resultado =  $query->result();
+		$query=$this->db->query("Select * from factura where id_cliente='".$id_cliente."' and fecha='".$date."' and hora= '".$data['hora']."'");
+		if($query->num_rows() == 0 ){
+			 $this->db->insert("factura",array('id_cliente' =>$id_cliente,'fecha'=>$date,'hora'=>$data['hora']));
+			
+			 $this->db->select_max('id_factura');
+			 $resu = $this->db->get('factura');
+
+			 foreach ($resu->result() as $f) {
+			 	$id_factura = $f->id_factura;
+			 }
+
+			 $this->db->insert("detalle",array('id_factura'=> $id_factura ,'id_producto'=>$data['id_producto'],'cantidad'=>$data['cantidad'],'precio'=>$data['precio']));			
+			
+		}else{
+			 $this->db->select_max('id_factura');
+			 $resu = $this->db->get('factura');
+
+			 foreach ($resu->result() as $f) {
+			 	$id_factura = $f->id_factura;
+			 }
+
+			 $this->db->insert("detalle",array('id_factura'=> $id_factura ,'id_producto'=>$data['id_producto'],'cantidad'=>$data['cantidad'],'precio'=>$data['precio']));
+		}
+		//Si no existen columnas agrega y si existen agrega en tabla detalle
+
 	}
 	//Busca un producto y muestra
 	function buscaYmuestraDato($prod){
