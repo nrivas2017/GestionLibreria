@@ -1,14 +1,17 @@
+</div>
+<!-- End of Main Content -->
 
 <!-- Footer -->
-<footer class="page-footer font-small bg-dark">
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">
-    © 2019 Copyright: Desarrollo Apps UCT
+<footer class="sticky-footer bg-white">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>Copyright &copy; Desarrollo Apps UCT</span>
+    </div>
   </div>
-  <!-- Copyright -->
-
 </footer>
-<!-- Footer -->
+<!-- End of Footer -->
+
+</div>
+<!-- End of Content Wrapper -->
 </body>
 </html>
