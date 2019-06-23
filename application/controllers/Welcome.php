@@ -40,6 +40,13 @@ class Welcome extends CI_Controller {
 		$this->load->view('productos',$data);
 		$this->load->view('footer');
 	}
+	public function proveedores(){
+		$this->load->view('headers');
+		$data['consulta']= $this->Datos_model->mostrarDatos("proveedor");
+		$this->load->view('barra_nav');
+		$this->load->view('proveedor',$data);
+		$this->load->view('footer');
+	}
 	public function nuevo(){
 		$this->load->view('headers');
 		$this->load->view('barra_nav');
