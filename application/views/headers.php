@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-885">
+<meta charset="UTF-8">
 <head>
 	<link rel="shortcut icon" href="<?= base_url().'img/icono.ico'?>"/>
 	<title>Gestion Libreria</title>

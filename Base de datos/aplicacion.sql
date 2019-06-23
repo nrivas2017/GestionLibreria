@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2.1
--- http://www.phpmyadmin.net
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 23-06-2019 a las 19:13:16
--- Versión del servidor: 5.7.26-0ubuntu0.16.04.1
--- Versión de PHP: 7.0.33-0ubuntu0.16.04.5
+-- Tiempo de generación: 24-06-2019 a las 01:18:29
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -66,7 +68,8 @@ CREATE TABLE `detalle` (
 
 INSERT INTO `detalle` (`id_factura`, `id_producto`, `cantidad`, `precio`) VALUES
 (2, 2, 2, 1164),
-(2, 1, 1, 1209);
+(2, 1, 1, 1209),
+(3, 2, 2, 1164);
 
 -- --------------------------------------------------------
 
@@ -76,18 +79,9 @@ INSERT INTO `detalle` (`id_factura`, `id_producto`, `cantidad`, `precio`) VALUES
 
 CREATE TABLE `detalle_proveedor` (
   `id_proveedor` int(11) NOT NULL,
-  `nombre` varchar(30) DEFAULT NULL,
-  `telefono` varchar(30) DEFAULT NULL
+  `id_producto` int(11) NOT NULL,
+  `cantidad` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `detalle_proveedor`
---
-
-INSERT INTO `detalle_proveedor` (`id_proveedor`, `nombre`, `telefono`) VALUES
-(2, 'artel', '56223901500'),
-(3, 'Jamila', '56975908794'),
-(4, 'Comercial RedOffice', '452910300');
 
 -- --------------------------------------------------------
 
@@ -108,7 +102,8 @@ CREATE TABLE `factura` (
 
 INSERT INTO `factura` (`id_factura`, `id_cliente`, `fecha`, `hora`) VALUES
 (1, 1, '2019-06-23', '18:12:31'),
-(2, 1, '2019-06-23', '18:12:31');
+(2, 1, '2019-06-23', '18:12:31'),
+(3, 3, '2019-06-24', '18:25:36');
 
 -- --------------------------------------------------------
 
@@ -150,9 +145,18 @@ INSERT INTO `productos` (`id_producto`, `nombre`, `precio_unitario`, `stock`) VA
 
 CREATE TABLE `proveedor` (
   `id_proveedor` int(11) NOT NULL,
-  `id_producto` int(11) NOT NULL,
-  `cantidad` int(11) DEFAULT NULL
+  `nombre` varchar(30) DEFAULT NULL,
+  `telefono` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `proveedor`
+--
+
+INSERT INTO `proveedor` (`id_proveedor`, `nombre`, `telefono`) VALUES
+(2, 'artel', '56223901500'),
+(3, 'Jamila', '56975908794'),
+(4, 'Comercial RedOffice', '452910300');
 
 --
 -- Índices para tablas volcadas
@@ -175,7 +179,8 @@ ALTER TABLE `detalle`
 -- Indices de la tabla `detalle_proveedor`
 --
 ALTER TABLE `detalle_proveedor`
-  ADD PRIMARY KEY (`id_proveedor`);
+  ADD KEY `id_proveedor` (`id_proveedor`),
+  ADD KEY `id_producto` (`id_producto`);
 
 --
 -- Indices de la tabla `factura`
@@ -194,8 +199,7 @@ ALTER TABLE `productos`
 -- Indices de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  ADD KEY `id_proveedor` (`id_proveedor`),
-  ADD KEY `id_producto` (`id_producto`);
+  ADD PRIMARY KEY (`id_proveedor`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -206,21 +210,25 @@ ALTER TABLE `proveedor`
 --
 ALTER TABLE `cliente`
   MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT de la tabla `detalle_proveedor`
---
-ALTER TABLE `detalle_proveedor`
-  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -233,17 +241,18 @@ ALTER TABLE `detalle`
   ADD CONSTRAINT `detalle_ibfk_2` FOREIGN KEY (`id_factura`) REFERENCES `factura` (`id_factura`);
 
 --
+-- Filtros para la tabla `detalle_proveedor`
+--
+ALTER TABLE `detalle_proveedor`
+  ADD CONSTRAINT `detalle_proveedor_ibfk_1` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedor` (`id_proveedor`),
+  ADD CONSTRAINT `detalle_proveedor_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`);
+
+--
 -- Filtros para la tabla `factura`
 --
 ALTER TABLE `factura`
   ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`);
-
---
--- Filtros para la tabla `proveedor`
---
-ALTER TABLE `proveedor`
-  ADD CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`id_proveedor`) REFERENCES `detalle_proveedor` (`id_proveedor`),
-  ADD CONSTRAINT `proveedor_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
