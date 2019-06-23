@@ -59,6 +59,7 @@ class Datos_Model extends CI_Model {
 		$date = date('Y-m-d');
 		// crea factura o pregunta si existe 
 		$query=$this->db->query("Select * from factura where id_cliente='".$id_cliente."' and fecha='".$date."' and hora= '".$data['hora']."'");
+		//Si no existen columnas agrega y si existen agrega en tabla detalle
 		if($query->num_rows() == 0 ){
 			 $this->db->insert("factura",array('id_cliente' =>$id_cliente,'fecha'=>$date,'hora'=>$data['hora']));
 			
@@ -81,7 +82,7 @@ class Datos_Model extends CI_Model {
 
 			 $this->db->insert("detalle",array('id_factura'=> $id_factura ,'id_producto'=>$data['id_producto'],'cantidad'=>$data['cantidad'],'precio'=>$data['precio']));
 		}
-		//Si no existen columnas agrega y si existen agrega en tabla detalle
+		
 
 	}
 	//Busca un producto y muestra
