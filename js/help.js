@@ -28,7 +28,6 @@ $(document).ready(function(){
 	});
 	$("#enviar").click(function(){
 		if(productos.length > 0 ){
-			console.log(productos);
 			$("#boleta").show();
 		}else{
 				alert("Debes llenar Carrito!!");
@@ -60,9 +59,7 @@ $(document).ready(function(){
 	});
 	$("#menu-toggle").click(function(e) {
 		e.preventDefault();
-		
 		$("#wrapper").toggleClass("toggled");
-
 		$('#wrapper.toggled').find("#sidebar-wrapper").find(".collapse").collapse('hide');
 		
 	});
@@ -122,7 +119,6 @@ function agregar_html(cadena){
 			method:"POST",
 			data:{query2:query},
 			success:function(data){
-				console.log(data);
 				$('#rut').html(data);
 			}
 		});
@@ -131,23 +127,26 @@ function agregar_html(cadena){
 		var f=new Date();
 		cad=f.getHours()+":"+f.getMinutes()+":"+f.getSeconds(); 
 		for (var x = 0 ;x < productos.length ; x++) {
-			alert(productos[x].nombre);
-		
-	 		$.ajax({
-				url:"http://localhost/GestionLibreria/index.php/welcome/guardarBoleta",
-				method:"POST",
-				data:{
-					rut_cliente:rut,
-					id_producto:productos[x].id_producto,
-					cantidad : productos[x].cantidad,
-					precio   : productos[x].total,
-					hora     : cad
+	 	 	$.ajax({
+			 	url:"http://localhost/GestionLibreria/index.php/welcome/guardarBoleta",
+			 	method:"POST",
+			 	data:{
+			 		rut_cliente:rut,
+			 		id_producto:productos[x].id_producto,
+			 		cantidad : productos[x].cantidad,
+			 		precio   : productos[x].total,
+			 		hora     : cad
 
-				},
-				success:function(data){
-					alert("Datos Guardados Correctamente");
-					console.log(data);
-				}
-			});
+			 	},
+			 	success:function(data){
+			 		alert("Datos Guardados Correctamente")
+			 		console.log(data);
+			 	},
+			 	error:function(data){
+			 		alert("Se ha producido un error")
+			 	}
+			 });
 		}
+
+
 	}

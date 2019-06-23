@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 06-06-2019 a las 16:20:58
--- Versión del servidor: 5.7.25-0ubuntu0.16.04.2
--- Versión de PHP: 7.0.33-0ubuntu0.16.04.3
+-- Tiempo de generación: 23-06-2019 a las 19:13:16
+-- Versión del servidor: 5.7.26-0ubuntu0.16.04.1
+-- Versión de PHP: 7.0.33-0ubuntu0.16.04.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -32,6 +32,21 @@ CREATE TABLE `cliente` (
   `nombre` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`id_cliente`, `rut`, `nombre`) VALUES
+(1, '16108750-5', 'Javier'),
+(2, '8529180-7', 'Luis'),
+(3, '21202327-2', 'Nicol'),
+(4, '14313282-k', 'Eduardo'),
+(5, '19778321-4', 'Edith'),
+(6, '17238792-6', 'Nicolas'),
+(7, '16582081-9', 'Daniel'),
+(8, '13349305-0', 'Esteban'),
+(9, '23567283-9', 'Andrea');
+
 -- --------------------------------------------------------
 
 --
@@ -39,12 +54,19 @@ CREATE TABLE `cliente` (
 --
 
 CREATE TABLE `detalle` (
-  `num_detalle` int(11) NOT NULL,
   `id_factura` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
   `cantidad` int(11) DEFAULT NULL,
   `precio` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `detalle`
+--
+
+INSERT INTO `detalle` (`id_factura`, `id_producto`, `cantidad`, `precio`) VALUES
+(2, 2, 2, 1164),
+(2, 1, 1, 1209);
 
 -- --------------------------------------------------------
 
@@ -76,8 +98,17 @@ INSERT INTO `detalle_proveedor` (`id_proveedor`, `nombre`, `telefono`) VALUES
 CREATE TABLE `factura` (
   `id_factura` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
-  `fecha` date DEFAULT NULL
+  `fecha` date DEFAULT NULL,
+  `hora` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `factura`
+--
+
+INSERT INTO `factura` (`id_factura`, `id_cliente`, `fecha`, `hora`) VALUES
+(1, 1, '2019-06-23', '18:12:31'),
+(2, 1, '2019-06-23', '18:12:31');
 
 -- --------------------------------------------------------
 
@@ -174,7 +205,7 @@ ALTER TABLE `proveedor`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `detalle_proveedor`
 --
@@ -184,7 +215,7 @@ ALTER TABLE `detalle_proveedor`
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
