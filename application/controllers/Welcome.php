@@ -20,19 +20,24 @@ class Welcome extends CI_Controller {
 		$datos = $this->Datos_model->crear_Boleta($data);
 		echo $datos;
 	}
-	public function index()
-	{
+	public function index(){
 		$this->load->view('headers');
 		$this->load->view('barra_nav');
 		$this->load->view('inicio');
 		$this->load->view('footer');
 	}
-	public function productos()
-	{
+	public function ventaProductos(){
 		$this->load->view('headers');
 		$data['consulta']= $this->Datos_model->mostrarDatos("productos");
 		$this->load->view('barra_nav');
 		$this->load->view('welcome_message',$data);
+		$this->load->view('footer');
+	}
+	public function productos(){
+		$this->load->view('headers');
+		$data['consulta']= $this->Datos_model->mostrarDatos("productos");
+		$this->load->view('barra_nav');
+		$this->load->view('productos',$data);
 		$this->load->view('footer');
 	}
 	public function nuevo(){
