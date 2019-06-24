@@ -32,14 +32,14 @@
     Manejo datos Productos
   </div>
 
-  <!-- Nav Item - Pages Collapse Menu -->
+  <!-- Nav Item - Producto Collapse Menu -->
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProd" aria-expanded="true" aria-controls="collapseTwo">
       <span>Pruductos</span>
     </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div id="collapseProd" class="collapse" aria-labelledby="headingProd" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Custom Components:</h6>
+        <h6 class="collapse-header">Configuracion Productos:</h6>
         <a class="collapse-item" href=<?= base_url().'index.php/Welcome/productos'?> >Productos</a>
         <a class="collapse-item" href=<?= base_url().'index.php/proveedores/addProducto'?> >Nuevo Producto</a>
       </div>
@@ -54,19 +54,40 @@
     Manejo datos Proveedores
   </div>
 
-  <!-- Nav Item - Utilities Collapse Menu -->
+  <!-- Nav Item - Proveedor Collapse Menu -->
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProv" aria-expanded="true" aria-controls="collapseUtilities">
       <span>Proveedores</span>
     </a>
-    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+    <div id="collapseProv" class="collapse" aria-labelledby="headingProv" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Custom Utilities:</h6>
+        <h6 class="collapse-header">Configuracion Proveedor:</h6>
         <a class="collapse-item" href=<?= base_url().'index.php/Welcome/proveedores'?> >Proveedores</a>
         <a class="collapse-item" href=<?= base_url().'index.php/proveedores/addProveedor'?> >Nuevo Proveedor</a>
       </div>
     </div>
   </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+<!-- Heading -->
+<div class="sidebar-heading">
+  Manejo datos Factura
+</div>
+
+<!-- Nav Item - Factura Collapse Menu -->
+<li class="nav-item">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFactura" aria-expanded="true" aria-controls="collapseUtilities">
+    <span>Factura</span>
+  </a>
+  <div id="collapseFactura" class="collapse" aria-labelledby="headingFactura" data-parent="#accordionSidebar">
+    <div class="bg-white py-2 collapse-inner rounded">
+      <h6 class="collapse-header">Configuracion Factura:</h6>
+      <a class="collapse-item" href="#" >Factura</a>
+    </div>
+  </div>
+</li>
 
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">
