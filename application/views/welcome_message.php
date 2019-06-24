@@ -34,7 +34,7 @@
 										foreach ($consulta->result() as $fila) {
 											$html = '<tr class="columna">';
 											$html=$html.'<td>'.$fila->id_producto.'</td>';
-											$html=$html.'<td>'.$fila->nombre.'</td>';
+											$html=$html.'<td>'.$fila->n_producto.'</td>';
 											$html=$html.'<td>$'.$fila->precio_unitario.'</td>';
 											$html=$html.'<td>'.$fila->stock.'</td>';
 											$html=$html.'</tr>';

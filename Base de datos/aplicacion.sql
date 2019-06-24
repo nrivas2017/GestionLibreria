@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 24-06-2019 a las 01:18:29
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 24-06-2019 a las 06:00:01
 -- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.4
+-- Versión de PHP: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -69,7 +69,8 @@ CREATE TABLE `detalle` (
 INSERT INTO `detalle` (`id_factura`, `id_producto`, `cantidad`, `precio`) VALUES
 (2, 2, 2, 1164),
 (2, 1, 1, 1209),
-(3, 2, 2, 1164);
+(3, 2, 2, 1164),
+(1, 2, 2, 1164);
 
 -- --------------------------------------------------------
 
@@ -113,7 +114,7 @@ INSERT INTO `factura` (`id_factura`, `id_cliente`, `fecha`, `hora`) VALUES
 
 CREATE TABLE `productos` (
   `id_producto` int(11) NOT NULL,
-  `nombre` varchar(30) DEFAULT NULL,
+  `n_producto` varchar(30) DEFAULT NULL,
   `precio_unitario` int(11) DEFAULT NULL,
   `stock` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -122,7 +123,7 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `nombre`, `precio_unitario`, `stock`) VALUES
+INSERT INTO `productos` (`id_producto`, `n_producto`, `precio_unitario`, `stock`) VALUES
 (1, 'Corrector', 1209, 74),
 (2, 'Goma Pequeña', 1164, 61),
 (3, 'Goma Grande', 1724, 99),
@@ -156,7 +157,8 @@ CREATE TABLE `proveedor` (
 INSERT INTO `proveedor` (`id_proveedor`, `nombre`, `telefono`) VALUES
 (2, 'artel', '56223901500'),
 (3, 'Jamila', '56975908794'),
-(4, 'Comercial RedOffice', '452910300');
+(4, 'Comercial RedOffice', '452910300'),
+(5, 'Torre', '56963538340');
 
 --
 -- Índices para tablas volcadas
@@ -227,7 +229,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas

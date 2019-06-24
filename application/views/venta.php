@@ -15,7 +15,7 @@
 					);
 					foreach ($consulta->result() as $fila) {
 							 $datos["id"][]=$fila->id_producto;
-							 $datos["nombre"][]=$fila->nombre;
+							 $datos["nombre"][]=$fila->n_producto;
 							 $datos["precio"][]=$fila->precio_unitario;
 							 $datos["stock"][]=$fila->stock;
 					}

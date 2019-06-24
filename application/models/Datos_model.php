@@ -91,5 +91,15 @@ class Datos_Model extends CI_Model {
 		$result = $this->db->get('productos');
 		return array('consulta'=> $result);
 	}
+
+	function buscarFactura(){
+		$this->db->select('*');
+		$this->db->from('factura');
+		$this->db->join('cliente', 'factura.id_cliente = cliente.id_cliente');
+		$this->db->join('detalle', 'factura.id_factura = detalle.id_factura');
+		$this->db->join('productos','detalle.id_producto = productos.id_producto');
+		$result = $this->db->get();
+		return $result;
+	}
 }
 ?>

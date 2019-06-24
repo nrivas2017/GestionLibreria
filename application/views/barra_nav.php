@@ -84,7 +84,7 @@
   <div id="collapseFactura" class="collapse" aria-labelledby="headingFactura" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Configuracion Factura:</h6>
-      <a class="collapse-item" href="#" >Factura</a>
+      <a class="collapse-item" href=<?= base_url().'index.php/Welcome/facturas'?>>Factura</a>
     </div>
   </div>
 </li>

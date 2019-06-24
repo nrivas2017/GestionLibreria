@@ -47,6 +47,14 @@ class Welcome extends CI_Controller {
 		$this->load->view('proveedor',$data);
 		$this->load->view('footer');
 	}
+	public function facturas(){
+		$this->load->view('headers');
+		$data['consulta']= $this->Datos_model->buscarFactura();
+		$this->load->view('barra_nav');
+
+		$this->load->view('facturas',$data);
+		$this->load->view('footer');
+	}
 	public function nuevo(){
 		$this->load->view('headers');
 		$this->load->view('barra_nav');
