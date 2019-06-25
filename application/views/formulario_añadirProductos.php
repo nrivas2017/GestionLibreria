@@ -33,7 +33,7 @@
 											<?php
 												$html = '';
 												foreach ($productos->result() as $f) {
-													$html=$html.'<option value='.$f->id_producto.'>'.$f->nombre.'</option>';
+													$html=$html.'<option value='.$f->id_producto.'>'.$f->n_producto.'</option>';
 												}
 												echo $html;
 											?>
@@ -46,7 +46,7 @@
 									</div>
 
 
-									<a id='enviar' href="index.html" class="btn btn-primary btn-user btn-block">
+									<a id='save' href="<?= base_url() ?>" class="btn btn-primary btn-user btn-block">
 									Enviar
 									</a>
 								</form>

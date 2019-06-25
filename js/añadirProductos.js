@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	$("#enviar").click(function(){
+	$("#save").click(function(){
 		var id_proveedor=$('#id_proveedor').val();
 		var id_producto =$('#id_producto').val();
 		var cantidad =$('#cantidad').val();

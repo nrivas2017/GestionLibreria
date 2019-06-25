@@ -35,7 +35,7 @@
   <!-- Nav Item - Producto Collapse Menu -->
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProd" aria-expanded="true" aria-controls="collapseTwo">
-      <span>Pruductos</span>
+      <span>Productos</span>
     </a>
     <div id="collapseProd" class="collapse" aria-labelledby="headingProd" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
