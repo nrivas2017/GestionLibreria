@@ -1,1 +1,1 @@
-<h1>GESTION DE LIBRERIA</h1>
+<h1 id="tittle_principal" >GESTION DE LIBRERIA</h1>

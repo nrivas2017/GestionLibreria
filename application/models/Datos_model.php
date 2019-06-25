@@ -87,7 +87,7 @@ class Datos_Model extends CI_Model {
 	}
 	//Busca un producto y muestra
 	function buscaYmuestraDato($prod){
-		$this->db->like('nombre',$prod['prod']);
+		$this->db->like('n_producto',$prod['prod']);
 		$result = $this->db->get('productos');
 		return array('consulta'=> $result);
 	}
