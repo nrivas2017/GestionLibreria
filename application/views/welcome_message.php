@@ -101,10 +101,6 @@
 	</div>
 </div>
 
-
-
-
-
 <section>
 	<div class="container"> 
 		<div id='boleta' class="card col-5" style="position: absolute !important; left:25% !important;bottom:20% !important;" >

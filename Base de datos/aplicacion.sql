@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2.1
+-- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 24-06-2019 a las 06:00:01
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.3
+-- Servidor: localhost
+-- Tiempo de generación: 25-06-2019 a las 16:53:02
+-- Versión del servidor: 5.7.26-0ubuntu0.16.04.1
+-- Versión de PHP: 7.0.33-0ubuntu0.16.04.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -70,7 +68,9 @@ INSERT INTO `detalle` (`id_factura`, `id_producto`, `cantidad`, `precio`) VALUES
 (2, 2, 2, 1164),
 (2, 1, 1, 1209),
 (3, 2, 2, 1164),
-(1, 2, 2, 1164);
+(1, 2, 2, 1164),
+(4, 3, 2, 1724),
+(4, 2, 1, 1164);
 
 -- --------------------------------------------------------
 
@@ -83,6 +83,16 @@ CREATE TABLE `detalle_proveedor` (
   `id_producto` int(11) NOT NULL,
   `cantidad` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `detalle_proveedor`
+--
+
+INSERT INTO `detalle_proveedor` (`id_proveedor`, `id_producto`, `cantidad`) VALUES
+(2, 12, 10),
+(2, 12, 10),
+(2, 2, 2),
+(2, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -104,7 +114,8 @@ CREATE TABLE `factura` (
 INSERT INTO `factura` (`id_factura`, `id_cliente`, `fecha`, `hora`) VALUES
 (1, 1, '2019-06-23', '18:12:31'),
 (2, 1, '2019-06-23', '18:12:31'),
-(3, 3, '2019-06-24', '18:25:36');
+(3, 3, '2019-06-24', '18:25:36'),
+(4, 1, '2019-06-24', '17:47:27');
 
 -- --------------------------------------------------------
 
@@ -125,7 +136,7 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`id_producto`, `n_producto`, `precio_unitario`, `stock`) VALUES
 (1, 'Corrector', 1209, 74),
-(2, 'Goma Pequeña', 1164, 61),
+(2, 'Goma Pequeña', 1164, 66),
 (3, 'Goma Grande', 1724, 99),
 (4, 'Libro escolar', 1599, 27),
 (5, 'Resma Officio', 351, 96),
@@ -135,7 +146,7 @@ INSERT INTO `productos` (`id_producto`, `n_producto`, `precio_unitario`, `stock`
 (9, 'Blog', 1518, 99),
 (10, 'Lapices de colores', 1171, 43),
 (11, 'Perforadora PequeÃ±a', 330, 30),
-(12, 'Silicona Liquida', 680, 27),
+(12, 'Silicona Liquida', 680, 47),
 (13, 'Pegamento Barra', 637, 70);
 
 -- --------------------------------------------------------
@@ -212,25 +223,21 @@ ALTER TABLE `proveedor`
 --
 ALTER TABLE `cliente`
   MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
   MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- Restricciones para tablas volcadas
 --
@@ -254,7 +261,6 @@ ALTER TABLE `detalle_proveedor`
 --
 ALTER TABLE `factura`
   ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
