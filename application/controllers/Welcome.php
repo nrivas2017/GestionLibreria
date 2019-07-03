@@ -18,8 +18,41 @@ class Welcome extends CI_Controller {
 			'hora'       =>$this->input->post("hora")
 		);
 		$datos = $this->Datos_model->crear_Boleta($data);
-		echo $datos;
+		
 	}
+	public function eliminarCliente(){
+		$data = array('id_cliente'=> $this->input->post('id_cliente'));
+		$this->Datos_model->eliminarCliente($data);
+	}
+	public function editarProducto(){
+		$data=array(
+			'id_producto' => $this->input->post("id_producto"),
+			'nombre' 	=> $this->input->post("nombre"),
+			'stock'   => $this->input->post("stock"),
+			'precio_unitario'     => $this->input->post("precio_unitario"),
+
+		);
+		$this->Datos_model->editarProducto($data);
+
+	}
+	public function editarCliente(){
+		$data=array(
+			'id_cliente' => $this->input->post("id_cliente"),
+			'rut' 	=> $this->input->post("rut"),
+			'nombre'   => $this->input->post("nombre")
+		);
+		$this->Datos_model->editarCliente($data);
+
+	}
+	public function editarProveedor(){
+		$data=array(
+			'id_proveedor' => $this->input->post("id_proveedor"),
+			'nombre' 	=> $this->input->post("nombre"),
+			'telefono'   => $this->input->post("telefono")
+		);
+		$this->Datos_model->editarProveedor($data);
+	}
+
 	public function index(){
 		$this->load->view('headers');
 		$this->load->view('barra_nav');
@@ -45,6 +78,13 @@ class Welcome extends CI_Controller {
 		$data['consulta']= $this->Datos_model->mostrarDatos("proveedor");
 		$this->load->view('barra_nav');
 		$this->load->view('proveedor',$data);
+		$this->load->view('footer');
+	}
+	public function clientes(){
+		$this->load->view('headers');
+		$data['consulta']= $this->Datos_model->mostrarDatos("cliente");
+		$this->load->view('barra_nav');
+		$this->load->view('cliente',$data);
 		$this->load->view('footer');
 	}
 	public function facturas(){

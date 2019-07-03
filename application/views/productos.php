@@ -1,4 +1,5 @@
 <!-- Begin Page Content -->
+<script type="text/javascript" src="<?= base_url().'js/helpProductos.js' ?>" ></script>
 <div class="container-fluid">
 	<!-- Page Heading -->
    <!-- DataTales Example -->
@@ -29,11 +30,11 @@
 						<!-- Llenar tabla-->
 						<?php
 							foreach ($consulta->result() as $fila) {
-						 		$html = '<tr>';
-								$html=$html.'<td>'.$fila->id_producto.'</td>';
-						 		$html=$html.'<td>'.$fila->n_producto.'</td>';
-						 		$html=$html.'<td>$'.$fila->precio_unitario.'</td>';
-						 		$html=$html.'<td>'.$fila->stock.'</td>';
+						 		$html = '<tr class="columna">';
+								$html=$html.'<td><p>'.$fila->id_producto.'</p></td>';
+						 		$html=$html.'<td><p>'.$fila->n_producto.'</p></td>';
+						 		$html=$html.'<td><p>$'.$fila->precio_unitario.'</p></td>';
+						 		$html=$html.'<td><p>'.$fila->stock.'</p></td>';
 						 		$html=$html.'</tr>';
 						 		echo $html;
 							}

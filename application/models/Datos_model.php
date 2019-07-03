@@ -5,6 +5,24 @@ class Datos_Model extends CI_Model {
 		parent::__construct();
 		$this->load->database();
 	}
+	function añadirCliente($data){
+		$this->db->insert('cliente',array('nombre'=>$data['nombre'],'rut'=>$data['rut']));
+	}
+	function eliminarCliente($data){
+		$this->db->delete('cliente', array('id_cliente' => $data['id_cliente']));
+	}
+	function editarProducto($data){
+		$this->db->where('id_producto',$data['id_producto']);
+		$this->db->update('productos',array('n_producto'=>$data['nombre'],'precio_unitario'=>$data['precio_unitario'],'stock'=>$data['stock']));
+	}
+	function editarCliente($data){
+		$this->db->where('id_cliente',$data['id_cliente']);
+		$this->db->update('cliente',array('rut'=>$data['rut'],'nombre'=>$data['nombre']));
+	}
+	function editarProveedor($data){
+		$this->db->where('id_proveedor',$data['id_proveedor']);
+		$this->db->update('proveedor',array('nombre'=>$data['nombre'],'telefono'=>$data['telefono']));
+	}
 	function crearDato($data){
 		$this->db->insert('proveedor',array('nombre'=>$data['nombre'],'telefono'=>$data['telefono']));
 	}
@@ -24,9 +42,6 @@ class Datos_Model extends CI_Model {
 	function mostrarDatos($db){
 		$result = $this->db->get($db);
 		return $result;
-	}
-	function eliminar($id){
-		$this->db->delete('alumnos',array('id'=>$id));
 	}
 	function obtener($id){
 		$this ->db->where('id',$id);

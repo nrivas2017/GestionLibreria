@@ -1,5 +1,5 @@
 <body>
-<script type="text/javascript" src="<?= base_url().'js/help.js' ?>" ></script>
+
 <link rel="stylesheet" type="text/css" href="<?= base_url().'css/style.css' ?>" media="screen" />
 <link href="<?= base_url().'css/sbadmin2-sidebar-toggle.css' ?>" rel="stylesheet" type="text/css">
 
@@ -71,6 +71,28 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Manejo de Clientes
+  </div>
+
+  <!-- Nav Item - Proveedor Collapse Menu -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCli" aria-expanded="true" aria-controls="collapseUtilities">
+      <span>Clientes</span>
+    </a>
+    <div id="collapseCli" class="collapse" aria-labelledby="headingProv" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <h6 class="collapse-header">Configuracion de Clientes:</h6>
+        <a class="collapse-item" href=<?= base_url().'index.php/Welcome/clientes'?> >Clientes</a>
+        <a class="collapse-item" href=<?= base_url().'index.php/Cliente/addCliente'?> >Nuevo Cliente</a>
+      </div>
+    </div>
+  </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
 <!-- Heading -->
 <div class="sidebar-heading">
   Manejo datos Factura
@@ -93,6 +115,11 @@
   <hr class="sidebar-divider d-none d-md-block">
 </ul>
 <!-- End of Sidebar -->
+
+
+
+
+
 
 
 <!-- Content Wrapper -->

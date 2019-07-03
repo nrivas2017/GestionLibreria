@@ -1,13 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
-<?php 
-	session_start();
-?>
 <div class="container-fluid">
 	<!-- Page Heading -->
 	<h1 class="h3 mb-4 text-gray-800">Venta</h1>
 	<div class="row">
 
-
+		<script type="text/javascript" src="<?= base_url().'js/help.js' ?>" ></script>
 
 		<!-- Productos -->
 		<div class="col-lg-5">
