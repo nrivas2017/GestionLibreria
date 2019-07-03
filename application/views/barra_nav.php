@@ -41,7 +41,7 @@
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Configuracion Productos:</h6>
         <a class="collapse-item" href=<?= base_url().'index.php/Welcome/productos'?> >Productos</a>
-        <a class="collapse-item" href=<?= base_url().'index.php/proveedores/addProducto'?> >Nuevo Producto</a>
+        <a class="collapse-item" href=<?= base_url().'index.php/proveedores/addProducto'?> >Añadir Producto</a>
       </div>
     </div>
   </li>
@@ -63,7 +63,7 @@
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Configuracion Proveedor:</h6>
         <a class="collapse-item" href=<?= base_url().'index.php/Welcome/proveedores'?> >Proveedores</a>
-        <a class="collapse-item" href=<?= base_url().'index.php/proveedores/addProveedor'?> >Nuevo Proveedor</a>
+        <a class="collapse-item" href=<?= base_url().'index.php/proveedores/addProveedor'?> >Añadir Proveedor</a>
       </div>
     </div>
   </li>
@@ -85,7 +85,7 @@
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Configuracion de Clientes:</h6>
         <a class="collapse-item" href=<?= base_url().'index.php/Welcome/clientes'?> >Clientes</a>
-        <a class="collapse-item" href=<?= base_url().'index.php/Cliente/addCliente'?> >Nuevo Cliente</a>
+        <a class="collapse-item" href=<?= base_url().'index.php/Cliente/addCliente'?> >Añadir Cliente</a>
       </div>
     </div>
   </li>
